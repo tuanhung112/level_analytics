@@ -2,19 +2,20 @@ version: 2
 
 models:
   - name: fct_level_design_performance
+    description: "This model is used to track the performance of each level, helping us analyze level difficulty."
     columns:
       - name: win_rate
+        description: "Percentage of winning when playing that level."
         tests:
           - dbt_utils.accepted_range:
-              arguments:  # All test-specific logic goes here
-                field: win_rate
+              arguments:  # Correctly aligned under the test name
                 min_value: 0
                 max_value: 100
 
       - name: drop_rate
+        description: "Percentage of dropping (quitting) when playing that level."
         tests:
           - dbt_utils.accepted_range:
               arguments:
-                field: drop_rate
                 min_value: 0
                 max_value: 100
