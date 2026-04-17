@@ -35,8 +35,15 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['dbt_utils', 'dbt']
+
 models:
-  my_new_project:
-    # Applies to all files under models/example/
-    example:
-      +materialized: table
+  my_new_project: # This MUST match the 'name:' at the top of your file
+    staging:
+      +materialized: view  # Staging is usually best as a view
+    intermediate:
+      +materialized: table # Intermediate is best as a table for performance
+    marts:
+      +materialized: table # Marts should always be tables for BI tools
