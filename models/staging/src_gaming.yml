@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: level_monitization_raw
+    database: kaiser-420808 # Replace with your BQ Project ID
+    schema: dataset_game # Replace with the dataset where the 3 tables live
+    tables:
+      - name: level_start
+        description: "Logs captured whenever a player begins a game level."
+      - name: level_end
+        description: "Logs captured when a player finishes or quits a level."
+      - name: revenue_ads
+        description: "Ad revenue events triggered within the game levels."

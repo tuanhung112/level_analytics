@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_level_events_joined
+    description: "This model used to calculated started user, completed user and the revenue each level is making"
+    columns :
+      - name: started_users
+        description: "The amount of unique users started that level"
+      - name: completed_users
+        description: "The amount of unique users completed that level"
+
